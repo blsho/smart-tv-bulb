@@ -13,7 +13,7 @@ async def main():
         for device in devices:
             print(device.name)
             await device.status.refresh()
-            if(not device.status.switch):
+            if(device.status.switch):
                 resp = requests.post(
                     url = config.light_url,
                     json = { "ids": config.light_ids}
